@@ -16,19 +16,20 @@ const useFirebase = () => {
 
 
 
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
 
     const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
+
             .then((result) => {
                 const user = result.user;
-                saveUser(user.email, user.displayName, 'PUT');
-                setAuthError('');
-                const destination = location?.state?.from || '/';
-                navigate(destination);
+                // saveUser(user.email, user.displayName, 'PUT');
+                // setAuthError('');
+                // const destination = location?.state?.from || '/';
+                // navigate(destination);
 
             }).catch((error) => {
                 setAuthError(error.message);
@@ -44,7 +45,7 @@ const useFirebase = () => {
                 setAuthError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
-                saveUser(email, name, 'POST');
+                // saveUser(email, name, 'POST');
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -97,22 +98,6 @@ const useFirebase = () => {
 
     }
 
-    const saveUser = (email, displayName, method) => {
-        const user = { email, displayName };
-        fetch('https://young-shore-30046.herokuapp.com/users', {
-            method: method,
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then()
-    };
-    useEffect(() => {
-        fetch(`https://young-shore-30046.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
     return {
         user,
         signInWithGoogle,
