@@ -44,7 +44,7 @@ const Login = () => {
                     <p className="or-sign mb-5">--------------- or Sign in with Email ---------------</p>
                     <form onSubmit={handleLoginSubmit}>
                         <input type="email" placeholder="Your Email *"
-                            className="input input-bordered input-md font w-full max-w-md mb-5 border-5 rounded-2xl border-color:rgb(168 166 173);"
+                            className="input input-bordered bg-transparent input-md font w-full max-w-md mb-5 border-5 rounded-2xl border-color:rgb(168 166 173);"
                             label="Your Email"
                             name="email"
                             onChange={handleOnChange}
