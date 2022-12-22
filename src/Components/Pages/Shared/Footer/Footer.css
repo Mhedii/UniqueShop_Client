@@ -1,0 +1,30 @@
+.secured {
+    width: 260px;
+  }
+  .payment {
+    width: 300px;
+  }
+
+div h3{
+    text-align: start;
+}
+  ul li,div p{
+    margin-bottom: 12px;
+    text-align: start;
+  }
+  ul li:hover{
+    color:#56cfe1;
+  }
+  .contect {
+    text-align: start;
+  }
+  .footer {
+    background-color: #f6f6f8;
+    padding-top: 60px;
+    margin-top: 70px;
+  }
+  .copyright {
+    background-color: white;
+    color: #878787;
+    padding-top: 10px;
+  }
